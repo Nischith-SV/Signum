@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Design Preview - Signum Learning</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 40px;
+            background: #2c3e50;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .certificate-container {
+            width: 1200px;
+            height: 850px;
+            position: relative;
+            /* Clean white/cream background like real certificates */
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Decorative borders - elegant gold/blue */
+        .border-outer {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            right: 30px;
+            bottom: 30px;
+            border: 8px solid #2c5f8d;
+        }
+        
+        .border-inner {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            right: 40px;
+            bottom: 40px;
+            border: 2px solid #c9a961;
+        }
+        
+        /* Tree structure visualization (Data Structures theme) - SUBTLE watermark */
+        .tree-structure {
+            position: absolute;
+            top: 150px;
+            right: 100px;
+            opacity: 0.05;
+            transform: scale(0.6);
+        }
+        
+        .tree-node {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #2c5f8d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            position: absolute;
+            font-size: 12px;
+        }
+        
+        .tree-line {
+            position: absolute;
+            background: #2c5f8d;
+            height: 2px;
+        }
+        
+        /* Certificate content */
+        .certificate-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 80px 100px;
+        }
+        
+        .title {
+            font-size: 42px;
+            font-weight: bold;
+            color: #2c5f8d;
+            letter-spacing: 8px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        
+        .course-name {
+            font-size: 32px;
+            font-weight: normal;
+            color: #c9a961;
+            margin-bottom: 50px;
+            font-style: italic;
+        }
+        
+        .divider {
+            width: 400px;
+            height: 1px;
+            background: #c9a961;
+            margin: 0 auto 40px;
+        }
+        
+        .achievement-text {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+        
+        .user-name {
+            font-size: 52px;
+            font-weight: bold;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+            border-bottom: 3px solid #c9a961;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .wallet-address {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 25px;
+            font-family: 'Courier New', monospace;
+            background: #f0f0f0;
+            padding: 6px 12px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+        
+        .completion-text {
+            font-size: 17px;
+            color: #555;
+            margin-bottom: 50px;
+            font-style: italic;
+            line-height: 1.6;
+        }
+        
+        .score-box {
+            background: #f8f9fa;
+            border: 3px solid #2c5f8d;
+            border-radius: 12px;
+            width: 300px;
+            padding: 25px;
+            margin: 0 auto 40px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .score-label {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+        
+        .score-value {
+            font-size: 64px;
+            font-weight: bold;
+            color: #2c5f8d;
+        }
+        
+        .date-text {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .platform-logo {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c5f8d;
+            letter-spacing: 3px;
+        }
+        
+        /* Signature lines */
+        .signatures {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 60px;
+            padding: 0 150px;
+        }
+        
+        .signature {
+            text-align: center;
+        }
+        
+        .signature-line {
+            width: 200px;
+            height: 1px;
+            background: #333;
+            margin-bottom: 8px;
+        }
+        
+        .signature-text {
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="certificate-container">
+        <!-- Decorative Borders -->
+        <div class="border-outer"></div>
+        <div class="border-inner"></div>
+        
+        <!-- Tree Structure (Data Structures Theme) -->
+        <div class="tree-structure">
+            <!-- Root node -->
+            <div class="tree-node" style="top: 0; left: 180px;">R</div>
+            
+            <!-- Lines from root to children -->
+            <div class="tree-line" style="top: 60px; left: 150px; width: 120px; transform: rotate(-30deg); transform-origin: left;"></div>
+            <div class="tree-line" style="top: 60px; left: 210px; width: 120px; transform: rotate(30deg); transform-origin: left;"></div>
+            
+            <!-- Left and right children -->
+            <div class="tree-node" style="top: 100px; left: 80px;">L</div>
+            <div class="tree-node" style="top: 100px; left: 280px;">R</div>
+            
+            <!-- More children -->
+            <div class="tree-line" style="top: 160px; left: 50px; width: 80px; transform: rotate(-30deg); transform-origin: left;"></div>
+            <div class="tree-line" style="top: 160px; left: 110px; width: 80px; transform: rotate(30deg); transform-origin: left;"></div>
+            <div class="tree-line" style="top: 160px; left: 250px; width: 80px; transform: rotate(-30deg); transform-origin: left;"></div>
+            <div class="tree-line" style="top: 160px; left: 310px; width: 80px; transform: rotate(30deg); transform-origin: left;"></div>
+            
+            <div class="tree-node" style="top: 200px; left: 20px;">A</div>
+            <div class="tree-node" style="top: 200px; left: 140px;">B</div>
+            <div class="tree-node" style="top: 200px; left: 220px;">C</div>
+            <div class="tree-node" style="top: 200px; left: 340px;">D</div>
+        </div>
+        
+        <!-- Certificate Content -->
+        <div class="certificate-content">
+            <div class="title">Certificate of Completion</div>
+            <div class="course-name">Data Structures & Algorithms</div>
+            <div class="divider"></div>
+            
+            <div class="achievement-text">This is to certify that</div>
+            <div class="user-name">SUHAS B M</div>
+            <div class="wallet-address">ID: HWvd7c7Y...W7mFn7EC</div>
+            <div class="completion-text">has successfully completed the comprehensive course<br>with outstanding performance and dedication</div>
+            
+            <div class="score-box">
+                <div class="score-label">Final Score</div>
+                <div class="score-value">99%</div>
+            </div>
+            
+            <div class="date-text">Issued on October 22, 2025</div>
+            
+            
+        </div>
+        
+        <div class="platform-logo">⚡ SIGNUM LEARNING</div>
+    </div>
+</body>
+</html>
